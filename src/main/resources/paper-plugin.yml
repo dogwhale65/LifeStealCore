@@ -1,0 +1,4 @@
+name: LifeStealCore
+version: '${project.version}'
+main: lifesteal.lifestealcore.LifeStealCore
+api-version: '1.20'
