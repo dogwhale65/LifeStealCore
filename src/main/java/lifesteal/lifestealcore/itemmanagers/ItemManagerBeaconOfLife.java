@@ -31,6 +31,7 @@ public class ItemManagerBeaconOfLife {
             line = line.replace("§o", "");
             lore.set(i, line);
         }
+        meta.setLore(lore);
         lifeBeacon.setItemMeta(meta);
         LifeBeacon = lifeBeacon;
         ShapedRecipe lbRecipe = new ShapedRecipe(NamespacedKey.minecraft("lifebeacon"), lifeBeacon);

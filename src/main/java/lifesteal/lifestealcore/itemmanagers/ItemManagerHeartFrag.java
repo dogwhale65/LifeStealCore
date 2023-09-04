@@ -31,6 +31,7 @@ public class ItemManagerHeartFrag {
             line = line.replace("§o", "");
             lore.set(i, line);
         }
+        meta.setLore(lore);
         heartFrag.setItemMeta(meta);
         HeartFrag = heartFrag;
         ShapedRecipe hfRecipe = new ShapedRecipe(NamespacedKey.minecraft("heartfrag"), heartFrag);
