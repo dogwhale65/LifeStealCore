@@ -12,9 +12,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitScheduler;
+import org.jetbrains.annotations.NotNull;
 
 public class PlayerDeath implements Listener {
+    private LifeStealCore plugin;
+
     public PlayerDeath(LifeStealCore plugin) {
+        this.plugin = plugin;
         Bukkit.getPluginManager().registerEvents(this, plugin);
     }
 
@@ -36,7 +40,7 @@ public class PlayerDeath implements Listener {
                         victim.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue((double) (6));
                         victim.banPlayer("§cYou have run out of hearts!");
                     }
-                }.runTaskLater((Plugin) this, 20L);
+                }.runTask(plugin);
             }
             if (valk >= 40 && killer != victim) {
                 killer.getInventory().addItem(new ItemStack[]{ItemManagerHeart.Heart});
