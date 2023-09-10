@@ -13,12 +13,13 @@ public final class LifeStealCore extends JavaPlugin {
     @Override
     public void onEnable() {
         Bukkit.getLogger().info("Enabling LifeSteal");
-        new PlayerDeath(this);
-        new EquipHeart(this);
-        new Revive(this);
         ItemManagerHeartFrag.init();
         ItemManagerHeart.init();
         ItemManagerBeaconOfLife.init();
+        new PlayerDeath(this);
+        Bukkit.getPluginManager().registerEvents(new EquipHeart(this), this);
+        new Revive(this);
+
         Bukkit.getPluginCommand("withdraw").setExecutor(new Withdraw());
     }
 
