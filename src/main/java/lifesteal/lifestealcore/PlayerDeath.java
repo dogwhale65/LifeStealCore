@@ -51,12 +51,13 @@ public class PlayerDeath implements Listener {
             player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue((double)(valp - 2));
             if (player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() <= 1.0) {
                 player.getInventory().clear();
-                BukkitScheduler scheduler = Bukkit.getScheduler();
-                scheduler.runTask((Plugin) this, () -> {
-                    player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue((double) (6));
-                    player.kickPlayer("§cYou have run out of hearts!");
-                    player.banPlayer("§cYou have run out of hearts!");
-                });
+                new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue((double) (6));
+                        player.banPlayer("§cYou have run out of hearts!");
+                    }
+                }.runTask(plugin);
             }
         }
     }
