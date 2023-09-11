@@ -19,7 +19,6 @@ public class PlayerDeath implements Listener {
 
     public PlayerDeath(LifeStealCore plugin) {
         this.plugin = plugin;
-        Bukkit.getPluginManager().registerEvents(this, plugin);
     }
 
     @EventHandler
