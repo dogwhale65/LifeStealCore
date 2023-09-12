@@ -15,8 +15,9 @@ import static org.bukkit.inventory.EquipmentSlot.HAND;
 import static org.bukkit.inventory.EquipmentSlot.OFF_HAND;
 
 public class EquipHeart implements Listener {
+    private LifeStealCore plugin;
     public EquipHeart(LifeStealCore plugin) {
-        Bukkit.getPluginManager().registerEvents(this, plugin);
+        this.plugin = plugin;
     }
 
     @EventHandler

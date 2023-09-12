@@ -16,9 +16,9 @@ public final class LifeStealCore extends JavaPlugin {
         ItemManagerHeartFrag.init();
         ItemManagerHeart.init();
         ItemManagerBeaconOfLife.init();
-        new PlayerDeath(this);
+        Bukkit.getPluginManager().registerEvents(new PlayerDeath(this), this);
         Bukkit.getPluginManager().registerEvents(new EquipHeart(this), this);
-        new Revive(this);
+        Bukkit.getPluginManager().registerEvents(new Revive(this), this);
 
         Bukkit.getPluginCommand("withdraw").setExecutor(new Withdraw());
     }

@@ -16,7 +16,6 @@ import org.jetbrains.annotations.NotNull;
 
 public class PlayerDeath implements Listener {
     private LifeStealCore plugin;
-
     public PlayerDeath(LifeStealCore plugin) {
         this.plugin = plugin;
     }

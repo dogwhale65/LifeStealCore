@@ -17,11 +17,11 @@ import org.bukkit.inventory.meta.SkullMeta;
 import static org.bukkit.Bukkit.getBanList;
 
 public class Revive implements Listener {
-
-    private String invName = "§cChoose a player to revive!";
+    private LifeStealCore plugin;
     public Revive(LifeStealCore plugin) {
-        Bukkit.getPluginManager().registerEvents(this, plugin);
+        this.plugin = plugin;
     }
+    private String invName = "§cChoose a player to revive!";
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
