@@ -9,6 +9,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -27,6 +28,10 @@ public class Revive implements Listener {
         Player player = event.getPlayer();
         ItemStack heldItem = player.getInventory().getItemInMainHand();
         if (heldItem.isSimilar(ItemManagerBeaconOfLife.LifeBeacon) && event.getAction().name().contains("RIGHT_CLICK")) {
+            if(event.getHand() == EquipmentSlot.OFF_HAND) {
+                event.setCancelled(true);
+                return;
+            }
             event.setCancelled(true);
             player.getInventory().removeItem(ItemManagerBeaconOfLife.LifeBeacon);
             Inventory inv = Bukkit.createInventory(player, 9 * 6, invName);
